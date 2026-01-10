@@ -13,7 +13,7 @@ export default function Page() {
     {
       title: "Brain-Battle",
       subtitle: "AI-powered multiplayer study platform with quiz competitions",
-      imageSrc: "/images/project-1.webp",
+      imageSrc: "/pictures for web/brain battle/Screenshot 2026-01-07 000516.png",
       tags: ["AI", "Full-Stack", "Real-Time"],
       href: "/case-study/brain-battle",
       priority: true,
@@ -23,7 +23,7 @@ export default function Page() {
     {
       title: "DermaLens",
       subtitle: "Computer vision skincare analysis with 95% detection accuracy",
-      imageSrc: "/images/project-2.webp",
+      imageSrc: "/pictures for web/dermalens/Screenshot 2026-01-07 001422.png",
       tags: ["AI", "Computer Vision", "Healthcare"],
       href: "/case-study/dermalens",
       priority: false,
@@ -33,7 +33,7 @@ export default function Page() {
     {
       title: "Inventory Tracker",
       subtitle: "Manufacturing bin management with weight-based tracking",
-      imageSrc: "/images/project-3.webp",
+      imageSrc: "/pictures for web/inventory tracker/Screenshot 2026-01-06 235446.png",
       tags: ["Full-Stack", "Manufacturing", "Database"],
       href: "/case-study/inventory-tracker",
       priority: false,
@@ -43,7 +43,7 @@ export default function Page() {
     {
       title: "Vision Based Inspection Machine",
       subtitle: "Automated fastener quality control with KEYENCE vision system",
-      imageSrc: "/images/project-4.webp",
+      imageSrc: "/pictures for web/vision based inspection machie/Screenshot 2026-01-06 203846.png",
       tags: ["Automation", "Computer Vision", "PLC"],
       href: "/case-study/vision-based-inspection-machine",
       priority: false,
@@ -53,7 +53,7 @@ export default function Page() {
     {
       title: "Workout Manager",
       subtitle: "MERN stack fitness tracker with RESTful API and global state",
-      imageSrc: "/images/project-5.webp",
+      imageSrc: "/pictures for web/mern stack workout buddy/Screenshot 2026-01-07 000951.png",
       tags: ["Full-Stack", "MERN", "REST API"],
       href: "/case-study/workout-manager",
       priority: false,
@@ -63,7 +63,7 @@ export default function Page() {
     {
       title: "Transfer System",
       subtitle: "Parallel gripper redesign for cold header sorting machines",
-      imageSrc: "/images/project-6.webp",
+      imageSrc: "/pictures for web/transfer system/Screenshot 2026-01-06 203655.png",
       tags: ["Mechanical Design", "CAD", "Automation"],
       href: "/case-study/transfer-system",
       priority: false,
@@ -73,7 +73,7 @@ export default function Page() {
     {
       title: "Mini-Bike Fabrication",
       subtitle: "Custom gas-powered motorcycle built from scratch with welding",
-      imageSrc: "/images/project-7.webp",
+      imageSrc: "/pictures for web/minibike/Screenshot 2026-01-06 203528.png",
       tags: ["Fabrication", "Welding", "CAD"],
       href: "/case-study/mini-bike-fabrication",
       priority: false,

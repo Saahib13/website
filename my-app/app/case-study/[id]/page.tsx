@@ -45,10 +45,9 @@ const caseStudies = {
       "Framer Motion",
     ],
     images: [
-      "/images/project-1.webp",
-      "/ai-quiz-generation-interface.jpg",
-      "/multiplayer-study-room-dashboard.jpg",
-      "/gamification-xp-leveling-system.jpg",
+      "/pictures for web/brain battle/Screenshot 2026-01-07 000516.png",
+      "/pictures for web/brain battle/Screenshot 2026-01-07 000616.png",
+      "/pictures for web/brain battle/Screenshot 2026-01-07 000638.png",
     ],
   },
   dermalens: {
@@ -91,10 +90,10 @@ const caseStudies = {
       "Tailwind CSS",
     ],
     images: [
-      "/images/project-2.webp",
-      "/multi-angle-facial-scanning-interface.jpg",
-      "/ai-skin-condition-detection-results.jpg",
-      "/personalized-skincare-product-recommendations.jpg",
+      "/pictures for web/dermalens/Screenshot 2026-01-07 001422.png",
+      "/pictures for web/dermalens/Screenshot 2026-01-07 001505.png",
+      "/pictures for web/dermalens/Screenshot 2026-01-07 001557.png",
+      "/pictures for web/dermalens/Screenshot 2026-01-07 001623.png",
     ],
   },
   "inventory-tracker": {
@@ -125,10 +124,9 @@ const caseStudies = {
     ],
     techStack: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS", "REST API"],
     images: [
-      "/images/project-3.webp",
-      "/inventory-bin-tracking-dashboard.jpg",
-      "/bin-movement-history-table.jpg",
-      "/weight-based-consumption-analytics.jpg",
+      "/pictures for web/inventory tracker/Screenshot 2026-01-06 235446.png",
+      "/pictures for web/inventory tracker/Screenshot 2026-01-06 235515.png",
+      "/pictures for web/inventory tracker/Screenshot 2026-01-06 235537.png",
     ],
   },
   "vision-based-inspection-machine": {
@@ -166,10 +164,9 @@ const caseStudies = {
       "Pneumatic Controls",
     ],
     images: [
-      "/images/project-4.webp",
-      "/automated-vision-inspection-machine-assembly.jpg",
-      "/keyence-camera-defect-detection-interface.jpg",
-      "/plc-control-system-and-pneumatic-sorting.jpg",
+      "/pictures for web/vision based inspection machie/Screenshot 2026-01-06 203846.png",
+      "/pictures for web/vision based inspection machie/Screenshot 2026-01-06 203903.png",
+      "/pictures for web/vision based inspection machie/Screenshot 2026-01-06 203917.png",
     ],
   },
   "workout-manager": {
@@ -200,10 +197,7 @@ const caseStudies = {
     ],
     techStack: ["MongoDB", "Express.js", "React", "Node.js", "Mongoose", "Context API", "date-fns", "REST API"],
     images: [
-      "/images/project-5.webp",
-      "/workout-tracker-dashboard-interface.jpg",
-      "/workout-entry-form-with-validation.jpg",
-      "/workout-history-cards-with-timestamps.jpg",
+      "/pictures for web/mern stack workout buddy/Screenshot 2026-01-07 000951.png",
     ],
   },
   "transfer-system": {
@@ -234,10 +228,10 @@ const caseStudies = {
     ],
     techStack: ["Fusion 360", "Manual Milling", "Pneumatic Systems", "Stepper Motor Control", "Mechanical Fabrication"],
     images: [
-      "/images/project-6.webp",
-      "/placeholder.svg?height=600&width=1200",
-      "/placeholder.svg?height=600&width=1200",
-      "/placeholder.svg?height=600&width=1200",
+      "/pictures for web/transfer system/Screenshot 2026-01-06 203655.png",
+      "/pictures for web/transfer system/Screenshot 2026-01-06 203716.png",
+      "/pictures for web/transfer system/Screenshot 2026-01-06 203728.png",
+      "/pictures for web/transfer system/Screenshot 2026-01-06 203804.png",
     ],
   },
   "mini-bike-fabrication": {
@@ -268,10 +262,9 @@ const caseStudies = {
     ],
     techStack: ["Fusion 360", "Stick Welding", "3D Printing", "Mechanical Assembly", "Engine Tuning"],
     images: [
-      "/images/project-7.webp",
-      "/placeholder.svg?height=600&width=1200",
-      "/placeholder.svg?height=600&width=1200",
-      "/placeholder.svg?height=600&width=1200",
+      "/pictures for web/minibike/Screenshot 2026-01-06 203528.png",
+      "/pictures for web/minibike/Screenshot 2026-01-06 203554.png",
+      "/pictures for web/minibike/Screenshot 2026-01-06 203615.png",
     ],
   },
 }
@@ -332,7 +325,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
               src={caseStudy.images[0] || "/placeholder.svg"}
               alt={caseStudy.title}
               fill
-              className="object-cover"
+              className={params.id === "brain-battle" ? "object-contain" : "object-cover"}
             />
           </div>
         </div>
@@ -392,23 +385,25 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
         </section>
 
         {/* Additional images */}
-        <section className="mb-16">
-          <h2 className="mb-6 text-3xl font-black">Visual Design</h2>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {caseStudy.images.slice(1).map((image, idx) => (
-              <div key={idx} className="overflow-hidden rounded-2xl border border-white/10">
-                <div className="relative aspect-video">
-                  <Image
-                    src={image || "/placeholder.svg"}
-                    alt={`${caseStudy.title} - Image ${idx + 2}`}
-                    fill
-                    className="object-cover"
-                  />
+        {caseStudy.images.length > 1 && (
+          <section className="mb-16">
+            <h2 className="mb-6 text-3xl font-black">Visual Design</h2>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {caseStudy.images.slice(1).map((image, idx) => (
+                <div key={idx} className="overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/50">
+                  <div className="relative aspect-video">
+                    <Image
+                      src={image || "/placeholder.svg"}
+                      alt={`${caseStudy.title} - Image ${idx + 2}`}
+                      fill
+                      className={params.id === "brain-battle" ? "object-contain" : "object-cover"}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Results */}
         <section className="mb-16">
