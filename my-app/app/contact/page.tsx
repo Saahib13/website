@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, Mail, Linkedin, Twitter, Github } from "lucide-react"
+import { ArrowLeft, Mail, Linkedin, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ContactPage() {
@@ -27,7 +27,7 @@ export default function ContactPage() {
         {/* Contact options */}
         <div className="mb-16 space-y-4">
           <a
-            href="mailto:brandon@portfolio.dev"
+            href="mailto:s5lall@uwaterloo.ca"
             className="group flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 transition-all hover:border-white/20 hover:bg-white/10 sm:p-8"
           >
             <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-white/10 transition-colors group-hover:bg-white/20">
@@ -35,13 +35,13 @@ export default function ContactPage() {
             </div>
             <div className="flex-1">
               <h2 className="mb-1 text-xl font-bold">Email</h2>
-              <p className="text-white/70">brandon@portfolio.dev</p>
+              <p className="text-white/70">s5lall@uwaterloo.ca</p>
             </div>
             <div className="text-white/50 transition-transform group-hover:translate-x-1">→</div>
           </a>
 
           <a
-            href="https://linkedin.com/in/brandon"
+            href="https://www.linkedin.com/in/saahib-lall-81671a327/"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 transition-all hover:border-white/20 hover:bg-white/10 sm:p-8"
@@ -51,29 +51,13 @@ export default function ContactPage() {
             </div>
             <div className="flex-1">
               <h2 className="mb-1 text-xl font-bold">LinkedIn</h2>
-              <p className="text-white/70">linkedin.com/in/brandon</p>
+              <p className="text-white/70">linkedin.com/in/saahib-lall-81671a327</p>
             </div>
             <div className="text-white/50 transition-transform group-hover:translate-x-1">→</div>
           </a>
 
           <a
-            href="https://twitter.com/brandon"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 transition-all hover:border-white/20 hover:bg-white/10 sm:p-8"
-          >
-            <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-white/10 transition-colors group-hover:bg-white/20">
-              <Twitter className="h-7 w-7" />
-            </div>
-            <div className="flex-1">
-              <h2 className="mb-1 text-xl font-bold">Twitter</h2>
-              <p className="text-white/70">@brandon</p>
-            </div>
-            <div className="text-white/50 transition-transform group-hover:translate-x-1">→</div>
-          </a>
-
-          <a
-            href="https://github.com/brandon"
+            href="https://github.com/Saahib13"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-6 rounded-3xl border border-white/10 bg-white/5 p-6 transition-all hover:border-white/20 hover:bg-white/10 sm:p-8"
@@ -83,7 +67,7 @@ export default function ContactPage() {
             </div>
             <div className="flex-1">
               <h2 className="mb-1 text-xl font-bold">GitHub</h2>
-              <p className="text-white/70">github.com/brandon</p>
+              <p className="text-white/70">github.com/Saahib13</p>
             </div>
             <div className="text-white/50 transition-transform group-hover:translate-x-1">→</div>
           </a>
