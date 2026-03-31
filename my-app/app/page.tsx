@@ -21,6 +21,17 @@ export default function Page() {
       gradientTo: "#6d28d9",
     },
     {
+      title: "Current Event Millionaire",
+      subtitle:
+        "Who Wants to Be a Millionaire–style trivia: Next.js, Supabase, Gemini, and a pure TypeScript game engine",
+      imageSrc: "/pictures for web/current-event-millionaire/axl-landing.png",
+      tags: ["AI", "Full-Stack", "Next.js"],
+      href: "/case-study/current-event-millionaire",
+      priority: false,
+      gradientFrom: "#0c1222",
+      gradientTo: "#4f46e5",
+    },
+    {
       title: "DermaLens",
       subtitle: "Computer vision skincare analysis with 95% detection accuracy",
       imageSrc: "/pictures for web/dermalens/Screenshot 2026-01-07 001422.png",

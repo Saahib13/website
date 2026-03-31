@@ -5,7 +5,24 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { notFound } from "next/navigation"
 
-const caseStudies = {
+type CaseStudy = {
+  title: string
+  subtitle: string
+  tags: string[]
+  year: string
+  role: string
+  duration: string
+  description: string
+  challenges: string[]
+  solutions: string[]
+  results: string[]
+  techStack: string[]
+  images: string[]
+  liveUrl?: string
+  githubUrl?: string
+}
+
+const caseStudies: Record<string, CaseStudy> = {
   "brain-battle": {
     title: "Brain Battle",
     subtitle: "AI-Powered Multiplayer Study Platform",
@@ -49,6 +66,52 @@ const caseStudies = {
       "/pictures for web/brain battle/Screenshot 2026-01-07 000616.png",
       "/pictures for web/brain battle/Screenshot 2026-01-07 000638.png",
     ],
+  },
+  "current-event-millionaire": {
+    title: "Current Event Millionaire",
+    subtitle: "AI-Powered Who Wants to Be a Millionaire–Style Trivia",
+    tags: ["AI", "Full-Stack", "Next.js", "Supabase", "Gemini"],
+    year: "2026",
+    role: "Full-Stack Developer (take-home)",
+    duration: "2 weeks",
+    description:
+      "A web trivia game inspired by Who Wants to Be a Millionaire, built to feel like a real product: polished Next.js App Router UI, Supabase/Postgres for sessions and a seeded corpus, and Gemini for grounded multiple-choice questions, explanations, and “Ask the Host” hints. Gameplay rules—prize ladder, milestones, lifelines—live in a pure TypeScript engine tested with Vitest. The backend is the source of truth: the browser only calls `/api/game/*`, never sees the correct answer before submit, and can recover state after refresh via GET session.",
+    challenges: [
+      "Making Gemini output reliable enough for a playable game—structured JSON that stays valid and on-topic",
+      "Preventing the frontend from learning the correct answer before submission while still rendering rich UI",
+      "Supporting refresh recovery without relying on fragile client-only state",
+      "Keeping boundaries clear between model-generated content, deterministic rules, and persisted truth",
+    ],
+    solutions: [
+      "Structured outputs from Gemini with Zod validation and retries before persisting to `session_questions`",
+      "Pure game engine in TypeScript (no I/O, no AI) for ladder, lifelines, and outcomes—exercised with Vitest",
+      "Next.js route handlers orchestrate Supabase + engine + Gemini; corpus rows retrieved from `corpus_items` before generation; separate `generateHostHint` for the Ask the Host lifeline",
+      "Correct index stored only server-side; GET snapshot omits it; answer POST returns explanation and correct index after lock-in",
+    ],
+    results: [
+      "End-to-end playable flow: start session, answer, lifelines, next question, win/loss",
+      "Rules are unit-testable and decoupled from I/O and the model",
+      "Questions grounded in retrieved corpus context, with session persistence for continuity",
+    ],
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Supabase",
+      "PostgreSQL",
+      "Google Gemini",
+      "@google/genai",
+      "Zod",
+      "Vitest",
+      "Vercel",
+    ],
+    images: [
+      "/pictures for web/current-event-millionaire/axl-landing.png",
+      "/pictures for web/current-event-millionaire/axl-gameplay.png",
+    ],
+    liveUrl: "https://axl-take-home.vercel.app/",
+    githubUrl: "https://github.com/Saahib13/AXL-Take-Home",
   },
   dermalens: {
     title: "DermaLens",
@@ -270,11 +333,13 @@ const caseStudies = {
 }
 
 export default function CaseStudyPage({ params }: { params: { id: string } }) {
-  const caseStudy = caseStudies[params.id as keyof typeof caseStudies]
+  const caseStudy = caseStudies[params.id]
 
   if (!caseStudy) {
     notFound()
   }
+
+  const caseStudyUsesContain = params.id === "brain-battle" || params.id === "current-event-millionaire"
 
   return (
     <main className="min-h-screen bg-neutral-950 text-white">
@@ -325,7 +390,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
               src={caseStudy.images[0] || "/placeholder.svg"}
               alt={caseStudy.title}
               fill
-              className={params.id === "brain-battle" ? "object-contain" : "object-cover"}
+              className={caseStudyUsesContain ? "object-contain" : "object-cover"}
             />
           </div>
         </div>
@@ -334,6 +399,32 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
         <section className="mb-16">
           <h2 className="mb-6 text-3xl font-black">Overview</h2>
           <p className="text-lg leading-relaxed text-white/80">{caseStudy.description}</p>
+          {(caseStudy.liveUrl || caseStudy.githubUrl) && (
+            <div className="mt-8 flex flex-wrap gap-3">
+              {caseStudy.liveUrl && (
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/20 bg-white/5 text-white hover:bg-white/10"
+                >
+                  <Link href={caseStudy.liveUrl} target="_blank" rel="noopener noreferrer">
+                    Live demo
+                  </Link>
+                </Button>
+              )}
+              {caseStudy.githubUrl && (
+                <Button
+                  asChild
+                  variant="outline"
+                  className="border-white/20 bg-white/5 text-white hover:bg-white/10"
+                >
+                  <Link href={caseStudy.githubUrl} target="_blank" rel="noopener noreferrer">
+                    Source code
+                  </Link>
+                </Button>
+              )}
+            </div>
+          )}
         </section>
 
         {/* Tech Stack - New section */}
@@ -396,7 +487,7 @@ export default function CaseStudyPage({ params }: { params: { id: string } }) {
                       src={image || "/placeholder.svg"}
                       alt={`${caseStudy.title} - Image ${idx + 2}`}
                       fill
-                      className={params.id === "brain-battle" ? "object-contain" : "object-cover"}
+                      className={caseStudyUsesContain ? "object-contain" : "object-cover"}
                     />
                   </div>
                 </div>
